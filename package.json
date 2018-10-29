@@ -1,0 +1,17 @@
+{
+  "name": "qlik-oss-issue-extractor",
+  "version": "1.0.0",
+  "description": "Get issues from GitHub",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm vscodeFunc.zip",
+    "deploy": "zip -r gitHubIssues.zip * && aws lambda update-function-code --function-name \"getGitHubIssues\" --zip-file fileb://gitHubIssues.zip"
+  },
+  "author": "Johan Bjerning",
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.2",
+    "mysql": "^2.16.0",
+    "node-fetch": "^2.2.0"
+  }
+}
