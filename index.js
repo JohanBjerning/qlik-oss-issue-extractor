@@ -102,6 +102,7 @@ exports.handler = async (event, context, callback) => {
     }
 
     return new Promise((resolve, reject) => {
+        var resultString = "";
         mysqlcon.getConnection(function(err, connection) {
             if (err) {
                 reject(err);
@@ -119,7 +120,7 @@ exports.handler = async (event, context, callback) => {
                         reject(err);
                     }
                     connection.release();
-                    resolve(result1 + result2);
+                    resolve("Affected rows in githubissues: " + result1.affectedRows + " Affected rows in githubissues_history: " + result2.affectedRows);
                 });
             });                
         });
